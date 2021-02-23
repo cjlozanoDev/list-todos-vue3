@@ -8,6 +8,7 @@
   <hr>
 
   <TaskAdd @add-task="addTask"/>
+
 </template>
 
 <script>

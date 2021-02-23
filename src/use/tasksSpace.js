@@ -1,10 +1,10 @@
-import taskList from "@/api/task.js"
-
+// import taskList from "@/api/task.js"
+import store from '@/store.js'
 import { computed, reactive, toRefs, watch } from 'vue'
 
 export default function useTasksSpace() {
   const tasksData = reactive({
-    tasks: taskList,
+    tasks: store.state.tasks,
     search: '',
     filteredTasks: computed(() => {
       return tasksData.tasks.filter(task => task.title.includes(tasksData.search))
@@ -12,10 +12,15 @@ export default function useTasksSpace() {
   })
 
   function addTask(task) {
-    tasksData.tasks.push({
-    title: task,
-    completed: false
-   })
+    // tasksData.tasks.push({
+    //   title: task,
+    //   completed: false
+    // })
+   console.log(task)
+    store.dispatch('checkTaskProfanity', {
+      title: task,
+      completed: false
+    }).catch(err => alert(err) )
   }
   
   const { tasks, search } = toRefs(tasksData)

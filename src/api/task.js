@@ -1,15 +1,15 @@
 export default [
   {
     title: 'Aprender Vue',
-    completed: false
+    completed: true
   },
   {
     title: 'Aprender Vuex',
-    completed: false
+    completed: true
   },
   {
     title: 'Aprender Vue Router',
-    completed: false
+    completed: true
   },
   {
     title: 'Aprender Nuxt',
